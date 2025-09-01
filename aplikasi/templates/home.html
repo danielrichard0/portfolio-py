@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock head %}
+
+{% block body %}
+<div class="container">
+    <h1 class="pt-5">Anda berhasil login boyyy</h1>
+    <h1>{{ user.name }}</h1>
+    <form action="{{ url_for('logout') }}" method="POST">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+</div>
+{% endblock body %}
+
+{% block customscript %}
+<script type="text/javascript">
+    function logout() {
+        $.ajax({
+            type: "POST",
+            url: "{{url_for('logout')}}",
+            error: function (res) {
+                console.log("gagal logout")
+            }
+        })
+    }
+</script>
+{% endblock customscript %}

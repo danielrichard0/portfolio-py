@@ -1,0 +1,2 @@
+from aplikasi import app
+
